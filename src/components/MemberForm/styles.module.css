@@ -1,0 +1,48 @@
+.memberForm {
+  margin-top: 2rem;
+}
+
+.memberForm form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.memberForm_title {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.memberForm_buttons_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.memberForm_btn {
+  padding: 1.5rem 2.5rem;
+  border: none;
+  outline: 1px solid #f2f2f2;
+  cursor: pointer;
+  border-radius: 0.4rem;
+  width: 12rem;
+}
+
+.memberForm_btn_delete {
+  background-color: transparent;
+  color: rgb(227, 113, 113);
+}
+
+.memberForm_btn_delete:hover {
+  background-color: #f2f2f2;
+}
+
+.memberForm_btn_save {
+  background-color: #544bf5;
+  color: #fff;
+}
+
+.memberForm_btn_save:hover {
+  background-color: #453fbf;
+}

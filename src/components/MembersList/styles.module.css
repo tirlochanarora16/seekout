@@ -1,0 +1,26 @@
+.singleMember {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  padding: 2rem 0;
+  border-bottom: 1px solid #c1c0c0;
+  cursor: pointer;
+}
+
+.singleMember_info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.singleMember_name {
+  color: #000;
+  font-weight: 400;
+}
+
+.singleMember_phone,
+.singleMember_email {
+  color: #939292;
+}
