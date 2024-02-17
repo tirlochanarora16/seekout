@@ -12,16 +12,18 @@ interface MemberState {
   memberForm: Member;
 }
 
+const initialMemberFormData: Member = {
+  firstName: "",
+  email: "",
+  lastName: "",
+  phone: "",
+  role: MemberType.REGULAR,
+};
+
 const initialState: MemberState = {
   currentScreen: "list",
   members: [],
-  memberForm: {
-    firstName: "",
-    email: "",
-    lastName: "",
-    phone: "",
-    role: MemberType.REGULAR,
-  },
+  memberForm: initialMemberFormData,
 };
 
 export const memberSlice = createSlice({
@@ -45,10 +47,17 @@ export const memberSlice = createSlice({
       }
     },
     updateMembers: (state, action: PayloadAction<Member>) => {},
+    resetFormData: (state) => {
+      state.memberForm = initialMemberFormData;
+    },
   },
 });
 
-export const { updateMembers, changeScreen, memberFormChangeHandler } =
-  memberSlice.actions;
+export const {
+  updateMembers,
+  changeScreen,
+  memberFormChangeHandler,
+  resetFormData,
+} = memberSlice.actions;
 
 export default memberSlice.reducer;
