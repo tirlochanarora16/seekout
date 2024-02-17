@@ -18,8 +18,6 @@ function App() {
     screenComponent = <MemberForm />;
   }
 
-  console.log(members);
-
   return (
     <Wrapper>
       <BoxHeader title={title} subtitle={subtitle} />
