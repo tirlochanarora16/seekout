@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import {
   addMember,
   changeScreen,
+  deleteMember,
   resetFormData,
   updateMember,
 } from "../../app/slices/member";
@@ -25,14 +26,17 @@ const MemberForm = () => {
     dispatch(changeScreen("list"));
   };
 
+  const deleteMemberHandler = () => {
+    dispatch(deleteMember());
+    dispatch(changeScreen("list"));
+  };
+
   // clearing form data when component umounts
   useEffect(() => {
     return () => {
       dispatch(resetFormData());
     };
   }, []);
-
-  console.log(memberForm);
 
   return (
     <div className={styles.memberForm}>
@@ -80,6 +84,7 @@ const MemberForm = () => {
             <button
               type="button"
               className={`${styles.memberForm_btn} ${styles.memberForm_btn_delete}`}
+              onClick={deleteMemberHandler}
             >
               Delete
             </button>
