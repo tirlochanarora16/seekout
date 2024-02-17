@@ -1,0 +1,11 @@
+.memberForm {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.memberForm_title {
+  font-size: 2rem;
+  font-weight: 500;
+}

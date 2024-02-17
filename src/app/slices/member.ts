@@ -48,6 +48,7 @@ export const memberSlice = createSlice({
   },
 });
 
-export const { updateMembers, changeScreen } = memberSlice.actions;
+export const { updateMembers, changeScreen, memberFormChangeHandler } =
+  memberSlice.actions;
 
 export default memberSlice.reducer;
