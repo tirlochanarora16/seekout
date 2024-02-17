@@ -1,13 +1,13 @@
-import { useAppSelector } from "./app/hooks";
 import BoxHeader from "./components/BoxHeader";
 import Wrapper from "./components/Wrapper";
+import { useTitleAndSubtitle } from "./helpers";
 
 function App() {
-  const { currentScreen } = useAppSelector((state) => state.member);
+  const { title, subtitle } = useTitleAndSubtitle();
 
   return (
-    <Wrapper wrapperAction="add" wrapperActionHandler={() => {}}>
-      <BoxHeader title="Team Members" subtitle="subtitle" />
+    <Wrapper>
+      <BoxHeader title={title} subtitle={subtitle} />
     </Wrapper>
   );
 }

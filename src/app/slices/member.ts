@@ -48,6 +48,6 @@ export const memberSlice = createSlice({
   },
 });
 
-export const { updateMembers } = memberSlice.actions;
+export const { updateMembers, changeScreen } = memberSlice.actions;
 
 export default memberSlice.reducer;

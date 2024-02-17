@@ -1,0 +1,14 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.box_title {
+  font-weight: 300;
+}
+
+.box_subtitle {
+  color: #666;
+  font-weight: 100;
+}

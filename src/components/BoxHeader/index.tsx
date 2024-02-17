@@ -8,8 +8,8 @@ interface IProps {
 const BoxHeader: React.FC<IProps> = ({ title, subtitle }) => {
   return (
     <div className={styles.box}>
-      <h1>{title}</h1>
-      <h3>{subtitle}</h3>
+      <h1 className={styles.box_title}>{title}</h1>
+      <h3 className={styles.box_subtitle}>{subtitle}</h3>
     </div>
   );
 };
