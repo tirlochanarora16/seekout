@@ -4,6 +4,7 @@ import {
   addMember,
   changeScreen,
   resetFormData,
+  updateMember,
 } from "../../app/slices/member";
 import { MemberType } from "../../types/member";
 import Input from "../Input";
@@ -18,9 +19,10 @@ const MemberForm = () => {
     e.preventDefault();
     if (currentScreen === "add") {
       dispatch(addMember(memberForm));
-      dispatch(changeScreen("list"));
     } else if (currentScreen === "edit") {
+      dispatch(updateMember(memberForm));
     }
+    dispatch(changeScreen("list"));
   };
 
   // clearing form data when component umounts

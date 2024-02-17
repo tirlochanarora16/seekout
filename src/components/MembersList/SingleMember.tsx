@@ -1,5 +1,9 @@
 import { useAppDispatch } from "../../app/hooks";
-import { changeScreen, setFormData } from "../../app/slices/member";
+import {
+  changeScreen,
+  setEditMemberId,
+  setFormData,
+} from "../../app/slices/member";
 import { Member, MemberType } from "../../types/member";
 import styles from "./styles.module.css";
 import { FaRegCircleUser } from "react-icons/fa6";
@@ -21,6 +25,7 @@ const SingleMember: React.FC<IProps> = ({ member, id }) => {
   const changeScreenHandler = () => {
     dispatch(changeScreen("edit"));
     dispatch(setFormData(member));
+    dispatch(setEditMemberId(id));
   };
 
   return (

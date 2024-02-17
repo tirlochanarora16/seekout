@@ -10,6 +10,7 @@ interface MemberState {
   currentScreen: MemberScreen;
   members: Member[];
   memberForm: Member;
+  editMemberId: number;
 }
 
 const initialMemberFormData: Member = {
@@ -24,6 +25,7 @@ const initialState: MemberState = {
   currentScreen: "list",
   members: [],
   memberForm: initialMemberFormData,
+  editMemberId: 0,
 };
 
 export const memberSlice = createSlice({
@@ -49,14 +51,23 @@ export const memberSlice = createSlice({
     addMember: (state, action: PayloadAction<Member>) => {
       state.members.push(action.payload);
     },
-    updateMember: (state) => {
-      // state.members = state.members.map((curMember))
+    updateMember: (state, action: PayloadAction<Member>) => {
+      state.members = state.members.map((curMember, index) => {
+        if (index === state.editMemberId) {
+          return action.payload;
+        }
+        return curMember;
+      });
+    },
+    setEditMemberId: (state, action: PayloadAction<number>) => {
+      state.editMemberId = action.payload;
     },
     setFormData: (state, action: PayloadAction<Member>) => {
       state.memberForm = action.payload;
     },
     resetFormData: (state) => {
       state.memberForm = initialMemberFormData;
+      state.editMemberId = 0;
     },
   },
 });
@@ -68,6 +79,7 @@ export const {
   resetFormData,
   setFormData,
   updateMember,
+  setEditMemberId,
 } = memberSlice.actions;
 
 export default memberSlice.reducer;

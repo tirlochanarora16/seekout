@@ -17,8 +17,3 @@ export type MemberFormData = {
   id: keyof Member;
   value: string | MemberType;
 };
-
-export type UpdateMember = {
-  id: number;
-  member: Member;
-};
