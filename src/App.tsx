@@ -1,9 +1,5 @@
 function App() {
-  return (
-    <div className="App">
-      <h1>hellow rold</h1>
-    </div>
-  );
+  return <h1>hellow rold</h1>;
 }
 
 export default App;

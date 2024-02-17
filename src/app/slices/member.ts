@@ -1,18 +1,53 @@
-import { createSlice } from "@reduxjs/toolkit";
-import type { RootState } from "../store";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import {
+  Member,
+  MemberFormData,
+  MemberScreen,
+  MemberType,
+} from "../../types/member";
 
 interface MemberState {
-  count: number;
+  currentScreen: MemberScreen;
+  members: Member[];
+  memberForm: Member;
 }
 
-const initialState = {
-  count: 0,
-} as MemberState;
+const initialState: MemberState = {
+  currentScreen: "list",
+  members: [],
+  memberForm: {
+    firstName: "",
+    email: "",
+    lastName: "",
+    phone: "",
+    role: MemberType.REGULAR,
+  },
+};
 
 export const memberSlice = createSlice({
   name: "memberSlice",
   initialState,
-  reducers: {},
+  reducers: {
+    changeScreen: (state, action: PayloadAction<MemberScreen>) => {
+      state.currentScreen = action.payload;
+    },
+    memberFormChangeHandler: (state, action: PayloadAction<MemberFormData>) => {
+      if (
+        action.payload.id === "role" &&
+        typeof action.payload.value !== "string"
+      ) {
+        state.memberForm.role = action.payload.value;
+      } else if (
+        action.payload.id !== "role" &&
+        typeof action.payload.value === "string"
+      ) {
+        state.memberForm[action.payload.id] = action.payload.value;
+      }
+    },
+    updateMembers: (state, action: PayloadAction<Member>) => {},
+  },
 });
+
+export const { updateMembers } = memberSlice.actions;
 
 export default memberSlice.reducer;
