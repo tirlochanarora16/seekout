@@ -1,6 +1,10 @@
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { resetFormData } from "../../app/slices/member";
+import {
+  addMember,
+  changeScreen,
+  resetFormData,
+} from "../../app/slices/member";
 import { MemberType } from "../../types/member";
 import Input from "../Input";
 import Radio from "../Radio";
@@ -8,10 +12,14 @@ import styles from "./styles.module.css";
 
 const MemberForm = () => {
   const dispatch = useAppDispatch();
-  const { currentScreen } = useAppSelector((state) => state.member);
+  const { currentScreen, memberForm } = useAppSelector((state) => state.member);
 
   const formSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (currentScreen === "add") {
+      dispatch(addMember(memberForm));
+      dispatch(changeScreen("list"));
+    }
   };
 
   // clearing form data when component umounts

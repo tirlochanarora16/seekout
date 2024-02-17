@@ -30,8 +30,6 @@ const Input: React.FC<IProps> = ({ type, placeholder, id, required }) => {
     );
   };
 
-  console.log(memberForm);
-
   return (
     <input
       id={id}

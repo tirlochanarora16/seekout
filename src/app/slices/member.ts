@@ -46,7 +46,9 @@ export const memberSlice = createSlice({
         state.memberForm[action.payload.id] = action.payload.value;
       }
     },
-    updateMembers: (state, action: PayloadAction<Member>) => {},
+    addMember: (state, action: PayloadAction<Member>) => {
+      state.members.push(action.payload);
+    },
     resetFormData: (state) => {
       state.memberForm = initialMemberFormData;
     },
@@ -54,7 +56,7 @@ export const memberSlice = createSlice({
 });
 
 export const {
-  updateMembers,
+  addMember,
   changeScreen,
   memberFormChangeHandler,
   resetFormData,

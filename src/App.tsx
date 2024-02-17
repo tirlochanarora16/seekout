@@ -1,21 +1,24 @@
 import { useAppSelector } from "./app/hooks";
 import BoxHeader from "./components/BoxHeader";
 import MemberForm from "./components/MemberForm";
+import MembersList from "./components/MembersList";
 import Wrapper from "./components/Wrapper";
 import { useTitleAndSubtitle } from "./helpers";
 
 function App() {
-  const { currentScreen } = useAppSelector((state) => state.member);
+  const { currentScreen, members } = useAppSelector((state) => state.member);
 
   const { title, subtitle } = useTitleAndSubtitle();
 
   let screenComponent: JSX.Element;
 
   if (currentScreen === "list") {
-    screenComponent = <p>list component</p>;
+    screenComponent = <MembersList />;
   } else {
     screenComponent = <MemberForm />;
   }
+
+  console.log(members);
 
   return (
     <Wrapper>

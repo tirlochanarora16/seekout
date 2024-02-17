@@ -9,7 +9,9 @@ export const useTitleAndSubtitle = () => {
 
   if (currentScreen === "list") {
     title = "Team Members";
-    subtitle = `You have ${members.length} team members.`;
+    subtitle = `You have ${members.length} team ${
+      members.length === 1 ? "member" : "members"
+    }.`;
   } else if (currentScreen === "add") {
     title = "Add a team member";
     subtitle = "Set email, location and role.";

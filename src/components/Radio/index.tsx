@@ -1,4 +1,4 @@
-import { useAppDispatch } from "../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { memberFormChangeHandler } from "../../app/slices/member";
 import { MemberFormData, MemberType } from "../../types/member";
 import styles from "./styles.module.css";
@@ -11,13 +11,14 @@ interface IProps {
 }
 
 const Radio: React.FC<IProps> = ({ id, label, name, value }) => {
+  const { memberForm } = useAppSelector((state) => state.member);
   const dispatch = useAppDispatch();
 
   const inputOnChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(
       memberFormChangeHandler({
-        id,
-        value: e.target.value,
+        id: name,
+        value,
       } as MemberFormData)
     );
   };
@@ -31,7 +32,7 @@ const Radio: React.FC<IProps> = ({ id, label, name, value }) => {
         id={id}
         type="radio"
         name={name}
-        value={value}
+        value={memberForm.role}
         required
         className={styles.radio_input}
         onChange={inputOnChangeHandler}
