@@ -8,7 +8,7 @@ const MembersList = () => {
   return (
     <div className={styles.membersList}>
       {members.map((member, index) => (
-        <SingleMember key={index} member={member} />
+        <SingleMember key={index} member={member} id={index} />
       ))}
     </div>
   );

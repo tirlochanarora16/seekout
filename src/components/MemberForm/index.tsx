@@ -19,6 +19,7 @@ const MemberForm = () => {
     if (currentScreen === "add") {
       dispatch(addMember(memberForm));
       dispatch(changeScreen("list"));
+    } else if (currentScreen === "edit") {
     }
   };
 
@@ -28,6 +29,8 @@ const MemberForm = () => {
       dispatch(resetFormData());
     };
   }, []);
+
+  console.log(memberForm);
 
   return (
     <div className={styles.memberForm}>

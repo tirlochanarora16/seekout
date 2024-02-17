@@ -36,9 +36,9 @@ export const memberSlice = createSlice({
     memberFormChangeHandler: (state, action: PayloadAction<MemberFormData>) => {
       if (
         action.payload.id === "role" &&
-        typeof action.payload.value !== "string"
+        typeof action.payload.value === "string"
       ) {
-        state.memberForm.role = action.payload.value;
+        state.memberForm.role = action.payload.value as MemberType;
       } else if (
         action.payload.id !== "role" &&
         typeof action.payload.value === "string"
@@ -48,6 +48,12 @@ export const memberSlice = createSlice({
     },
     addMember: (state, action: PayloadAction<Member>) => {
       state.members.push(action.payload);
+    },
+    updateMember: (state) => {
+      // state.members = state.members.map((curMember))
+    },
+    setFormData: (state, action: PayloadAction<Member>) => {
+      state.memberForm = action.payload;
     },
     resetFormData: (state) => {
       state.memberForm = initialMemberFormData;
@@ -60,6 +66,8 @@ export const {
   changeScreen,
   memberFormChangeHandler,
   resetFormData,
+  setFormData,
+  updateMember,
 } = memberSlice.actions;
 
 export default memberSlice.reducer;

@@ -15,6 +15,8 @@ const Radio: React.FC<IProps> = ({ id, label, name, value }) => {
   const dispatch = useAppDispatch();
 
   const inputOnChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value as MemberType);
+
     dispatch(
       memberFormChangeHandler({
         id: name,
@@ -36,6 +38,7 @@ const Radio: React.FC<IProps> = ({ id, label, name, value }) => {
         required
         className={styles.radio_input}
         onChange={inputOnChangeHandler}
+        checked={memberForm.role === value}
       />
     </div>
   );
