@@ -1,0 +1,13 @@
+.wrapper {
+  background-color: #fff;
+  height: 100vh;
+  max-width: 56rem;
+  margin: auto;
+  padding: 2rem;
+}
+
+.wrapperIcon {
+  width: fit-content;
+  margin-left: auto;
+  cursor: pointer;
+}
