@@ -1,0 +1,14 @@
+.radio {
+  display: flex;
+}
+
+.radio_label {
+  display: block;
+  display: flex;
+  flex: 1;
+  cursor: pointer;
+}
+
+.radio_input {
+  display: block;
+}

@@ -1,4 +1,6 @@
+import { MemberType } from "../../types/member";
 import Input from "../Input";
+import Radio from "../Radio";
 import styles from "./styles.module.css";
 
 const MemberForm = () => {
@@ -25,6 +27,18 @@ const MemberForm = () => {
       />
       <Input id="phone" type="text" placeholder="Enter phone" required={true} />
       <p className={styles.memberForm_title}>Role</p>
+      <Radio
+        value={MemberType.REGULAR}
+        name="role"
+        id="regular"
+        label="Regular - Can't delete members"
+      />
+      <Radio
+        value={MemberType.ADMIN}
+        name="role"
+        id="admin"
+        label="Admin - Can delete members"
+      />
     </div>
   );
 };
