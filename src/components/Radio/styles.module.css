@@ -1,0 +1,16 @@
+.radio {
+  display: flex;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #c1c0c0;
+}
+
+.radio_label {
+  display: block;
+  display: flex;
+  flex: 1;
+  cursor: pointer;
+}
+
+.radio_input {
+  display: block;
+}
