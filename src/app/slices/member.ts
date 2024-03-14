@@ -17,6 +17,7 @@ const initialMemberFormData: Member = {
   firstName: "",
   email: "",
   lastName: "",
+  title: "",
   phone: "",
   role: MemberType.REGULAR,
 };

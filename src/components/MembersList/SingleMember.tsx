@@ -16,7 +16,7 @@ interface IProps {
 const SingleMember: React.FC<IProps> = ({ member, id }) => {
   const dispatch = useAppDispatch();
 
-  const { firstName, lastName, role, email, phone } = member;
+  const { firstName, lastName, role, email, phone, title } = member;
 
   const fullName = `${firstName} ${lastName} ${
     role === MemberType.ADMIN ? "(Admin)" : ""
@@ -29,10 +29,16 @@ const SingleMember: React.FC<IProps> = ({ member, id }) => {
   };
 
   return (
-    <div className={styles.singleMember} onClick={changeScreenHandler}>
+    <div
+      className={styles.singleMember}
+      onClick={changeScreenHandler}
+      style={{ background: role === MemberType.ADMIN ? "blue" : "" }}
+    >
       <FaRegCircleUser size={46} />
       <div className={styles.singleMember_info}>
-        <p className={styles.singleMember_name}>{fullName}</p>
+        <p className={styles.singleMember_name}>
+          {fullName} {title}
+        </p>
         <p className={styles.singleMember_phone}>{phone}</p>
         <p className={styles.singleMember_email}>{email}</p>
       </div>

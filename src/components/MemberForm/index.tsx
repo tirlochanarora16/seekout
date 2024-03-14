@@ -38,6 +38,8 @@ const MemberForm = () => {
     };
   }, []);
 
+  console.log(memberForm);
+
   return (
     <div className={styles.memberForm}>
       <form onSubmit={formSubmitHandler}>
@@ -52,6 +54,12 @@ const MemberForm = () => {
           id="lastName"
           type="text"
           placeholder="Enter Last name"
+          required={true}
+        />
+        <Input
+          id="title"
+          type="text"
+          placeholder="Enter title"
           required={true}
         />
         <Input
@@ -80,7 +88,7 @@ const MemberForm = () => {
           label="Admin - Can delete members"
         />
         <div className={styles.memberForm_buttons_container}>
-          {currentScreen === "edit" ? (
+          {currentScreen === "edit" && memberForm.role !== MemberType.ADMIN ? (
             <button
               type="button"
               className={`${styles.memberForm_btn} ${styles.memberForm_btn_delete}`}

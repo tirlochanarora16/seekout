@@ -6,6 +6,7 @@ export enum MemberType {
 export type Member = {
   firstName: string;
   lastName: string;
+  title: string;
   email: string;
   phone: string;
   role: MemberType;
