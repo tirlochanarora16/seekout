@@ -28,6 +28,9 @@ const SingleMember: React.FC<IProps> = ({ member, id }) => {
     dispatch(setEditMemberId(id));
   };
 
+
+  
+
   return (
     <div
       className={styles.singleMember}
