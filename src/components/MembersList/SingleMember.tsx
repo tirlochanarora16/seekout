@@ -20,7 +20,7 @@ const SingleMember: React.FC<IProps> = ({ member, id }) => {
 
   const fullName = `${firstName} ${lastName} ${
     role === MemberType.ADMIN ? "(Admin)" : ""
-  }`;
+  } ${title}`;
 
   const changeScreenHandler = () => {
     dispatch(changeScreen("edit"));
@@ -36,9 +36,7 @@ const SingleMember: React.FC<IProps> = ({ member, id }) => {
     >
       <FaRegCircleUser size={46} />
       <div className={styles.singleMember_info}>
-        <p className={styles.singleMember_name}>
-          {fullName} {title}
-        </p>
+        <p className={styles.singleMember_name}>{fullName}</p>
         <p className={styles.singleMember_phone}>{phone}</p>
         <p className={styles.singleMember_email}>{email}</p>
       </div>
